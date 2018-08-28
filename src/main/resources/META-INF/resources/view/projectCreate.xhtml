@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+
+                template="/template/mainLayout.xhtml">
+
+    <ui:define name="title">
+        Создать
+    </ui:define>
+
+
+    <ui:define name="content">
+
+        <h:form id="projectListForm">
+
+            <p:growl id="msgs" showDetail="true"/>
+
+            <div class="ui-g">
+                <a href="/projects/create" target="_blank" >Создать</a>
+            </div>
+
+            <p:dataTable id="dtProjectList" var="item" value="#{projectListComponent.list}"
+                         sortMode="multiple"
+                         paginator="true" rows="20" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="10,20,100"
+                         filteredValue="#{projectListComponent.filteredList}" emptyMessage="Нет данных"
+                         editable="true"
+
+
+
+                         >
+
+                <p:ajax event="rowEdit" listener="#{projectListComponent.onRowEdit}" update=":projectListForm:msgs" />
+                <p:ajax event="rowEditCancel" listener="#{projectListComponent.onRowCancel}" update=":projectListForm:msgs" />                
+
+                <p:column headerText="Id" 
+                          sortBy="#{item.id}" 
+                          filterBy="#{item.id}" filterMatchMode="contains">
+                    <h:outputText value="#{item.id}" />
+                </p:column>
+
+                <p:column headerText="Наименование" 
+                          sortBy="#{item.name}"
+                          filterBy="#{item.name}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.name}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.name}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Описание"
+                          sortBy="#{item.description}"
+                          filterBy="#{item.description}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.description}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.description}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Edit" style="width:32px">
+                    <p:rowEditor />
+                </p:column>
+
+                <p:column headerText="Delete" style="width:10%" >  
+                    <p:commandButton actionListener="#{projectListComponent.delete(item)}"                                      
+                                     update=":projectListForm"
+                                     icon="ui-icon-trash" />
+                </p:column>  
+
+            </p:dataTable>    
+
+        </h:form>
+
+    </ui:define>
+
+
+</ui:composition>

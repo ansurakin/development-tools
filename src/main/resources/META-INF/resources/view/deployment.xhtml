@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+
+                template="/template/mainLayout.xhtml">
+
+    <ui:define name="title">
+        Развертывание
+    </ui:define>
+
+
+    <ui:define name="content">
+
+        <h:form>
+            <p:growl id="growl" life="2000" />
+
+            <p:commandButton value="Очистить Папку Исходников" id="cleanSrcDirAjax" update="growl" actionListener="#{deploymentView.cleanSrcDir}" styleClass="ui-priority-primary" /><br />
+            <p:commandButton value="Клонировать" id="cloneAjax" update="growl" actionListener="#{deploymentView.clone}" styleClass="ui-priority-primary" /><br />
+            <p:commandButton value="Очистить Папку Сборки" id="cleanBuildDirAjax" update="growl" actionListener="#{deploymentView.cleanBuildDir}" styleClass="ui-priority-primary" /><br />
+            <p:commandButton value="Собрать" id="buildAjax" update="growl" actionListener="#{deploymentView.build}" styleClass="ui-priority-primary" /><br />
+            <p:commandButton value="Очистить Папку Запуска" id="cleanRunDirAjax" update="growl" actionListener="#{deploymentView.cleanRunDir}" styleClass="ui-priority-primary" /><br />
+
+        </h:form>
+
+    </ui:define>
+
+
+</ui:composition>
