@@ -1,5 +1,5 @@
 CREATE TABLE project (
-  "id" int8 PRIMARY KEY,
+  "id" bigint NOT NULL PRIMARY KEY,
   "name" varchar(255),
   "description" varchar(255),
   "order_number" int4 DEFAULT 100,

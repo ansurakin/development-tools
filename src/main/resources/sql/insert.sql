@@ -1,5 +1,5 @@
-INSERT INTO project("name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES ('CARS-Integration', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
-INSERT INTO project("name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES ('CARS-Notification', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
+INSERT INTO project(id, "name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES (1, 'CARS-Integration', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
+INSERT INTO project(id, "name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES (2, 'CARS-Notification', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
 INSERT INTO project("name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES ('CARS-Registration', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
 INSERT INTO project("name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES ('CARS-Search', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
 INSERT INTO project("name", "description", "order_number", "is_clone", "is_build", "build_branch", "is_install", "is_runable", "is_init_script") VALUES ('CARS-TomcatLoader', NULL, 100, 'f', 't', 'master', 'f', 'f', 'f');
